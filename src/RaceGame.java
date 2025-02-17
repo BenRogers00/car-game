@@ -6,10 +6,11 @@ import java.awt.event.KeyEvent;
 public class RaceGame extends JPanel {
     private final Car car;
 
-    public RaceGame() {
+    public RaceGame(int screenWidth, int screenHeight) {
         //make new car at test location
         car = new Car(50, 50);
-
+        System.out.println(screenHeight);
+        System.out.println(screenWidth);
         //listener for key presses
         addKeyListener(new KeyAdapter() {
             //booleans for key press combinations
@@ -80,10 +81,20 @@ public class RaceGame extends JPanel {
                     car.moveCarBackwards();
                 }
                 repaint();
-                System.out.println("x: "+car.getX() +"\ty: "+car.getY());
+
                 if(car.getX() <0)
                 {
                     car.setX(0);
+                }
+                if(car.getY() <1)
+                {
+                    car.setY(10);
+                }
+                if(car.getX() > screenWidth-12){
+                    car.setX(screenWidth+15);
+                }
+                if(car.getY() > screenHeight-37){
+                    car.setY(screenHeight-27);
                 }
             }
 
@@ -95,6 +106,8 @@ public class RaceGame extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         car.draw(g);
+        g.drawString("x: " + car.getX(), 10, 10);
+        g.drawString("y: " + car.getY(), 10, 20);
     }
 
     public static void main(String[] args) {
@@ -108,7 +121,7 @@ public class RaceGame extends JPanel {
         //close operation
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.add(new RaceGame());
+        frame.add(new RaceGame(screenSize.width - 5, screenSize.height/2));
 
         //make visible
         frame.setVisible(true);
