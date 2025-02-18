@@ -3,7 +3,7 @@ public class TyreMark {
     public int y;
     int width = 5;
     int height = 5;
-    int time = 15;
+    int time = 150;
 
     public TyreMark(int x, int y){
         this.x = x ;

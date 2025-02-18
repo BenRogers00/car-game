@@ -139,10 +139,16 @@ public class Car {
         // Draw tyre marks
         g2d.setColor(Color.GRAY);
         for (TyreMark tyreMark : tyreMarksLeft) {
-            g2d.fillRect(tyreMark.x, tyreMark.y, tyreMark.width, tyreMark.height);
+            if(tyreMark.time > 0) {
+                g2d.fillRect(tyreMark.x, tyreMark.y, tyreMark.width, tyreMark.height);
+                tyreMark.time -= 1;
+            }
         }
         for (TyreMark tyreMark : tyreMarksRight) {
-            g2d.fillRect(tyreMark.x, tyreMark.y, tyreMark.width, tyreMark.height);
+            if(tyreMark.time > 0) {
+                g2d.fillRect(tyreMark.x, tyreMark.y, tyreMark.width, tyreMark.height);
+                tyreMark.time -= 1;
+            }
         }
     }
 
