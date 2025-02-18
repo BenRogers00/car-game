@@ -84,7 +84,7 @@ public class RaceGame extends JPanel {
 
                 if(car.getX() <0)
                 {
-                    car.setX(0);
+                    car.setX(25);
                 }
                 if(car.getY() <1)
                 {

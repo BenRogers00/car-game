@@ -7,7 +7,7 @@ public class Car {
     private double angle;
     private Rectangle body;
     private Rectangle[] tyres;
-    private final int moveDistance = 4;
+    private final int moveDistance = 8;
     private ArrayList<TyreMark> tyreMarksLeft = new ArrayList<>();
     private ArrayList<TyreMark> tyreMarksRight = new ArrayList<>();
 
