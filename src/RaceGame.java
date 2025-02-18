@@ -84,7 +84,7 @@ public class RaceGame extends JPanel {
 
                 if(car.getX() <0)
                 {
-                    car.setX(0);
+                    car.setX(25);
                 }
                 if(car.getY() <1)
                 {
@@ -105,14 +105,14 @@ public class RaceGame extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         car.draw(g);
+        g.setColor(Color.blue);
         g.drawString("x: " + car.getX(), 10, 10);
         g.drawString("y: " + car.getY(), 10, 20);
     }
 
     public static void main(String[] args) {
-        //setup window
-
         //create window
         JFrame frame = new JFrame("Race Game");
         //get size of screen, set to window size
